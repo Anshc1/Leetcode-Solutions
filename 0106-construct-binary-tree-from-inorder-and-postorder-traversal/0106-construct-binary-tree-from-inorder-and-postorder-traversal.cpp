@@ -2,7 +2,7 @@ class Solution {
 public:
     
     int n ;  
-    TreeNode* recur(unordered_map<int,int>&idx , int la ,int ra ,int lb ,int rb , vector<int>&a , vector<int>&b ){
+    TreeNode* recur(map<int,int>&idx , int la ,int ra ,int lb ,int rb , vector<int>&a , vector<int>&b ){
         if(la > ra){
             return NULL; 
         }
@@ -20,7 +20,7 @@ public:
         return root ; 
     }
     TreeNode* buildTree(vector<int>& a, vector<int>& b) {
-        unordered_map<int,int>idx; 
+        map<int,int>idx; 
         n = a.size(); 
         for(int i =0 ; i < n ; i++){
             idx[a[i]] = i ; 
