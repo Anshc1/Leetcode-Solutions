@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+SELECT T.TEACHER_ID AS teacher_id  ,COUNT(DISTINCT T.SUBJECT_ID) AS cnt  FROM TEACHER T GROUP BY T.TEACHER_ID
