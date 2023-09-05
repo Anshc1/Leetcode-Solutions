@@ -1,7 +1,7 @@
 class Solution {
 public:
     int n ; 
-    bool dfs(int u , int k , map<int,int>&idx , vector<vector<int>>&dp ,vector<int>&a){
+    bool dfs(int u , int k , unordered_map<int,int>&idx , vector<vector<int>>&dp ,vector<int>&a){
         if(k>n || k < 0 ){
             return 0 ; 
         }
@@ -24,7 +24,7 @@ public:
     bool canCross(vector<int>&a) {
         n = a.size(); 
         vector<vector<int>>dp(n+1 , vector<int>(n+1, -1)); 
-        map<int,int>idx;
+        unordered_map<int,int>idx;
         for(int i =0 ;i < n ; i++){
             idx[a[i]] = i+1 ; 
         }
