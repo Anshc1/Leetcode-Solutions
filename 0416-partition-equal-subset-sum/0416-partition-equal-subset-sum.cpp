@@ -11,7 +11,8 @@ public:
         dp[0] = 1;
         
         for (int i = 0; i < n ; i++) {
-            vector<int>temp(sum+1 ,0 ) ; 
+            int temp[sum+1] ;
+            memset(temp , 0 ,sizeof(temp) ); 
             for (int k = 0 ; k <= sum ; k++) {
                 temp[k] |= dp[k];
                 if (dp[k] && k+a[i] <= sum) {
