@@ -6,22 +6,26 @@ public:
         for (int i = 0 ; i < n ; i++) {
             sum += a[i];
         }
-        int dp[n+1][sum+1]; 
+        int dp[sum+1]; 
         memset(dp , 0 , sizeof(dp)); 
-        dp[0][0] = 1;
+        dp[0] = 1;
         
         for (int i = 0; i < n ; i++) {
+            vector<int>temp(sum+1 ,0 ) ; 
             for (int k = 0 ; k <= sum ; k++) {
-                dp[i + 1][k] |= dp[i][k];
-                if (dp[i][k] && k+a[i] <= sum) {
-                    dp[i + 1][k + a[i]] |= 1 ;
+                temp[k] |= dp[k];
+                if (dp[k] && k+a[i] <= sum) {
+                    temp[k + a[i]] |= 1 ;
                 }
+            }
+            for(int k =0 ;k<= sum ;k++){
+                dp[k] = temp[k]; 
             }
         }
        
         if (sum % 2) {
             return 0 ;
         }
-        return dp[n][sum / 2] ;
+        return dp[sum / 2] ;
     }
 };
