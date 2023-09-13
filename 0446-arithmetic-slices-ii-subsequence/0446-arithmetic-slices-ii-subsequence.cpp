@@ -2,7 +2,7 @@ class Solution {
 public:
     
     int numberOfArithmeticSlices(vector<int>& a) {
-        map<int,int>ct; 
+        unordered_map<int,int>ct; 
         int ans =0 ; 
         for(auto i : a){
             ct[i]++; 
