@@ -1,10 +1,10 @@
 class LRUCache {
 public:
-    map<int,int>vals; 
+    unordered_map<int,int>vals; 
     int sz; 
     int cap; 
     list<int>dll; 
-    map<int,list<int>::iterator>it;
+    unordered_map<int,list<int>::iterator>it;
 
     LRUCache(int capacity) {
         sz = 0;
