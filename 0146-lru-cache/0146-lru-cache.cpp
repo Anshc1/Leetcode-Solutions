@@ -18,7 +18,7 @@ public:
     }
 
     int get(int key) {
-        if(vals.count(key) == 0) {  // Check if key exists
+        if(vals[key] == 0) {  // Check if key exists
             return -1; 
         }
         update_iterator(key); 
@@ -26,7 +26,7 @@ public:
     }
     
     void put(int key, int value) {
-        if(vals.count(key) != 0) {  // Check if key exists
+        if(vals[key] != 0) {  // Check if key exists
             vals[key] = value+1;
             update_iterator(key); 
             return; 
@@ -34,7 +34,7 @@ public:
         
         if(sz == cap) {
             auto lastIt = --dll.end();
-            vals.erase(*lastIt);    // Remove the key from vals
+            vals[*lastIt] = 0 ;    // Remove the key from vals
             it.erase(*lastIt);      // Remove the key from it
             dll.erase(lastIt);
             sz--;
