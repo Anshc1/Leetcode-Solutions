@@ -13,7 +13,7 @@ public:
         int n = a.size(); 
         int m = nums.size(); 
         int j =0 ; 
-        map<int,int>ct ; 
+        unordered_map<int,int>ct ; 
         int ans = 1e9; 
         int l  , r ;
         for(int i =0 ;i < n ; i++){
