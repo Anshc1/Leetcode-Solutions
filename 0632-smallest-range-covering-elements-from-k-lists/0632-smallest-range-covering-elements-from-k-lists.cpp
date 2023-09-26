@@ -9,7 +9,7 @@ public:
             }
         }
         sort(a.begin() , a.end()); 
-        set<int>x;
+        unordered_set<int>x;
         int n = a.size(); 
         int m = nums.size(); 
         int j =0 ; 
