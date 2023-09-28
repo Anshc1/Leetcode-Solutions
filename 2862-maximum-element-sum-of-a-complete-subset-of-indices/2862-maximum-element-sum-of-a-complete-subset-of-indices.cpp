@@ -16,7 +16,7 @@ public:
     
     long long maximumSum(vector<int>& a) {
         int n = a.size(); 
-        map<int,long long>ct;
+        unordered_map<int,long long>ct;
         long long ans = 0; 
         for(int i =0 ; i < n ; i++){
             auto mp = primes(i+1);
