@@ -2,7 +2,7 @@ class SummaryRanges {
 public:
     vector<int>vis;  
     set<int>start ; 
-    map<int,int>last; 
+    unordered_map<int,int>last; 
     SummaryRanges() {
        vis.assign(1e4+1 , 0 ); 
         last.clear(); 
