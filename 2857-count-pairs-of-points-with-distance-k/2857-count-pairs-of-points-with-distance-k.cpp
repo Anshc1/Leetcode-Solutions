@@ -1,7 +1,7 @@
 class Solution {
 public:
     int countPairs(vector<vector<int>>&c, int k) {
-        map<int,map<int,int>>ct; 
+        unordered_map<int,unordered_map<int,int>>ct; 
         int n = c.size(); 
         int ans = 0; 
         for(int i = n-1; i >= 0 ; i--){
