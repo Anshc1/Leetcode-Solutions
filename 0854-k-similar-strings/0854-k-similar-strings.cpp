@@ -1,41 +1,41 @@
 class Solution {
 public:
-    int kSimilarity(string A, string B) {
-        if (A == B) return 0;
-
-        unordered_set<string> vis;
-        queue<string> q;
-        q.push(A);
-        vis.insert(A);
-        
-        int res = 0;
-
-        while(!q.empty()) {
-            res++;
-            for (int sz = q.size(); sz > 0; sz--) {
-                string s = q.front();
+    int kSimilarity(string s1, string s2) {
+        int n = s1.size();
+        queue<string>q ;
+        unordered_map<string, int>dis;
+        unordered_map<string, int>vis;
+        q.push(s1);
+        vis[s1] = 1;
+        while (!q.empty()) {
+            int sz = q.size();
+            while (sz--) {
+                string t = q.front();
                 q.pop();
-                
-                int i = 0;
-                while (s[i] == B[i]) i++;
-                
-                for (int j = i+1; j < s.length(); j++) {
-                    if (s[j] == B[j] || s[j] != B[i]) continue;
-                    string temp = swap1(s, i, j);
-                    if (temp == B) return res;
-                    if (vis.find(temp) == vis.end()) {
-                        q.push(temp);
-                        vis.insert(temp);
+                int d = dis[t];
+                for (int i = 0 ; i < n ; i++) {
+                    if (t[i] != s2[i]) {
+                        for (int j = i + 1 ; j < n ; j++) {
+                            if (t[j] != s2[i] ) {
+                                continue;
+                            }
+                            swap(t[i] , t[j]);
+                            if (!vis[t]) {
+                                vis[t] = 1;
+                                if (dis[t] == 0 ) {
+                                    dis[t] = d + 1 ;
+                                } else {
+                                    dis[t] = min(dis[t] , d + 1);
+                                }
+                                q.push(t);
+                            }
+                            swap(t[i] , t[j]);
+                        }
+                        break; 
                     }
                 }
             }
         }
-
-        return res;
-    }
-
-    string swap1(string s, int i, int j) {
-        swap(s[i], s[j]);
-        return s;
+        return dis[s2];
     }
 };
