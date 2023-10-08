@@ -15,7 +15,7 @@ public:
             return 0 ; 
         }
         int ans= 1e9 ; 
-        map<int,int>x; 
+        unordered_map<int,int>x; 
         int j = 0 ;
         vector<char> p = {'Q' , 'W' , 'E' , 'R'}; 
         for(int i = 0; i < n ;i++ ){
