@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool check(map<char,int>&x ,map<char,int>&y){
+    bool check(unordered_map<char,int>&x ,unordered_map<char,int>&y){
         for(int i = 0; i < 26 ; i++){
             if(x[(char)(i+'a')] < y[(char)(i+'a')]){
                 return 0 ; 
@@ -13,7 +13,7 @@ public:
     }
     string minWindow(string s, string t) {
         int n = s.size(); 
-        map<char,int>x , y ; 
+        unordered_map<char,int>x , y ; 
         for(auto i : t){
             y[i]++; 
         }
