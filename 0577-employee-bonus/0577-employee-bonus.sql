@@ -1,5 +1,13 @@
-# Write your MySQL query statement belowse
+# Write your MySQL query statement belo
 
-select Employee.name  , bonus.bonus from employee 
-left join bonus on employee.empid = bonus.empid
-where bonus.bonus < 1000 or bonus.bonus is NULL 
+
+SELECT 
+    Employee.name as name , 
+    COALESCE(Bonus.bonus, null) AS bonus
+FROM 
+    Employee
+LEFT JOIN 
+    Bonus ON Employee.empId = Bonus.empId
+WHERE 
+    Bonus.bonus < 1000 OR Bonus.bonus IS NULL;
+
