@@ -1,3 +1,4 @@
 # Write your MySQL query statement below
-select * from cinema where cinema.description != 'boring' and cinema.id%2 =1 
+
+select * from cinema where mod(id,2) = 1 and description != 'boring'
 order by rating desc
